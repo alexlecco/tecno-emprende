@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Platform, StyleSheet, View, TouchableHighlight, } from 'react-native';
+import { Platform, StyleSheet, View, TouchableOpacity, } from 'react-native';
 import { Button, Text, } from 'native-base';
 
 export default class ProjectCard extends Component {
@@ -17,12 +17,12 @@ export default class ProjectCard extends Component {
 				<Text style={styles.projectText}>Emprendimiento: {this.props.project.name}</Text>
 				<Text style={styles.projectText}>Emprendedor: {this.props.project.author}</Text>
 				<View style={styles.buttonContainer}>
-					<TouchableHighlight primary transparent
+					<TouchableOpacity primary transparent
 							onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
-						<Text>
+						<Text style={styles.button}>
 							Ver Proyecto
 						</Text>
-					</TouchableHighlight>
+					</TouchableOpacity>
 				</View>
 				<View
 					style={styles.lineDivider}
@@ -33,30 +33,34 @@ export default class ProjectCard extends Component {
 }
 
 const styles = StyleSheet.create({
-    projectCardContainer: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		marginTop: 10,
-		marginBottom: 10,
-		paddingTop: 10,
-		paddingBottom: 10,
-		backgroundColor: '#ffffff',
-    },
-    projectText: {
-		color: 'grey',
+  projectCardContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
+    marginBottom: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#091732',
+  },
+  projectText: {
+    color: '#FFFFFF',
 	},
 	buttonContainer: {
 		flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-		padding: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 10,
 		marginTop: 5,
 	},
 	lineDivider: {
 		borderBottomWidth: 1,
-		borderBottomColor: '#3F51B5',
+		borderBottomColor: '#FF005E',
 		paddingLeft: 10,
 		paddingRight: 10,
 		width: 250,
-	},
+  },
+  button: {
+    color: '#FF005E',
+    fontSize: 17,
+  }
 });

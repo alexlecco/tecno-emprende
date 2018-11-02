@@ -7,7 +7,7 @@ import {
   YellowBox,
   ImageBackground,
   TextInput,
-  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 import { Container, Text, Button, } from 'native-base';
 import { firebaseApp } from './firebase';
@@ -242,17 +242,19 @@ export default class App extends React.Component {
       if(!this.state.projectInfoVisible) {
         return(
           <Container>
-            <View style={styles.statusBarUnderlay} />
-            <Text style={styles.investorFunds}>Fondos disponibles $ {this.state.loggedInvestor.remaining_funds}</Text>
-            <Text style={styles.investorName}>
-              Inversor: <Text style={{color: '#3F51B5', fontSize: 18}}>{this.state.loggedInvestor.name}</Text>
-            </Text>
-            <ScrollView>
-              <ListView
-                dataSource={this.state.dataSourceProjects}
-                renderRow={(project) => this.renderProject(project)}
-              />
-            </ScrollView>
+            <View style={styles.container}>
+              <View style={styles.statusBarUnderlay} />
+              <Text style={styles.investorFunds}>Fondos disponibles $ {this.state.loggedInvestor.remaining_funds}</Text>
+              <Text style={styles.investorName}>
+                Inversor: <Text style={{color: '#03F5FF', fontSize: 18}}>{this.state.loggedInvestor.name}</Text>
+              </Text>
+              <ScrollView>
+                <ListView
+                  dataSource={this.state.dataSourceProjects}
+                  renderRow={(project) => this.renderProject(project)}
+                />
+              </ScrollView>
+            </View>
           </Container>
         );
       }
@@ -266,9 +268,9 @@ export default class App extends React.Component {
                 source={require('./assets/images/loginScreen.png')}
                 style={{width: '100%', height: '100%'}}>
                   <View style={styles.loginContainer}>
-                    <TouchableHighlight primary transparent block onPress={ () => this.loginWithFacebook() }>
-                      <Text> Accedé con Facebook </Text>
-                    </TouchableHighlight>
+                    <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
+                      <Text style={styles.loginButton}> Ingresá con Facebook </Text>
+                    </TouchableOpacity>
                   </View>
               </ImageBackground>
 
@@ -284,19 +286,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#c1c1c1',
+    backgroundColor: '#091732',
   },
   statusBarUnderlay: {
     height: 24,
-    backgroundColor: '#3F51B5',
+    backgroundColor: '#091732',
   },
   investorFunds: {
+    color: '#FFFFFF',
     fontSize: 20,
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 5,
   },
   investorName: {
+    color: '#FFFFFF',
     fontSize: 18,
     textAlign: 'center',
     marginTop: 5,
@@ -315,5 +319,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 40,
+  },
+  loginButton: {
+    color: '#FFFFFF',
+    fontSize: 17,
   },
 });

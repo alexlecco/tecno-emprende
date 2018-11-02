@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Platform, StyleSheet, View, TouchableOpacity, Alert, TouchableHighlight, } from 'react-native';
+import {Platform, StyleSheet, View, TouchableOpacity, Alert, Image, } from 'react-native';
 import {
     Container, 
     Content, 
@@ -127,10 +127,12 @@ export default class ProjectInfo extends Component {
     render() {
         let showOrHideProjectInfo = this.props.showOrHideProjectInfo;
         let project = this.props.project;
+        const image = "../assets/images/proj1.png";
         
         return(
             <Container>
-                <Content>
+              <Content>
+                <View style={styles.container1}>
                     <View style={styles.projectContainer}>
                         <View style={styles.projectTitleContainer}>
                             <Text style={styles.projectTitle}>{project.name}</Text>
@@ -142,101 +144,113 @@ export default class ProjectInfo extends Component {
                         
                         <View style={styles.projectBodyContainer}>
                             <Text style={styles.projectBody}>{project.description}</Text>
+                            <Image source={require(image)}
+                                   style={styles.infoImage} />
                             <View style={styles.projectInvestment}>
-                                <Picker
-                                    mode="dropdown"
-                                    iosIcon={<Icon name="ios-arrow-down-outline" />}
-                                    placeholderStyle={{ color: "#bfc6ea" }}
-                                    placeholderIconColor="#007aff"                                    
-                                    style={styles.pickerContainer}
-                                    onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
-                                    selectedValue={this.state.investmentValue} >
-                                        <Picker.Item label="$ 100.000" value={100000} />
-                                        <Picker.Item label="$ 50.000"  value={50000} />
-                                        <Picker.Item label="$ 20.000"  value={20000} />
-                                        <Picker.Item label="$ 10.000"  value={10000} />
-                                </Picker>
+                            <Picker
+                                mode="dropdown"
+                                iosIcon={<Icon name="ios-arrow-down-outline" />}
+                                placeholderStyle={{ color: "#bfc6ea" }}
+                                placeholderIconColor="#007aff"                                    
+                                style={styles.pickerContainer}
+                                onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
+                                selectedValue={this.state.investmentValue} >
+                                    <Picker.Item label="$ 100.000" value={100000} />
+                                    <Picker.Item label="$ 50.000"  value={50000} />
+                                    <Picker.Item label="$ 20.000"  value={20000} />
+                                    <Picker.Item label="$ 10.000"  value={10000} />
+                            </Picker>
                             </View>
                         </View>
                     </View>
-                </Content>
-                <View style={styles.buttonsContainer}>
-                  {
-                    this.props.button ?
-                    <TouchableHighlight full primary transparent
+                </View>
+              </Content>
+              <View style={styles.buttonsContainer}>
+                {
+                  this.props.button ?
+                  <View style={styles.button}>
+                    <TouchableOpacity full primary transparent
                             onPress={() => this.investInProject()} >
                         <Text>
                             Invertir
                         </Text>
-                    </TouchableHighlight> :
-                    <View
-                        style={styles.hiddenButton}
-                    />
-                  }
-                  <TouchableHighlight full primary transparent
+                    </TouchableOpacity>
+                  </View> :
+                  <View
+                    style={styles.hiddenButton}
+                  />
+                }
+                <View style={styles.button}>
+                  <TouchableOpacity full primary transparent
                                       onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
                     <Text>
                         Volver
                     </Text>
-                  </TouchableHighlight>
+                  </TouchableOpacity>
                 </View>
-
+              </View>
             </Container>   
         );
     }
 }
 
 const styles = StyleSheet.create({
+  container1: {
+    backgroundColor: '#091732'
+  },
+  container2: {
+    backgroundColor: '#091732'
+  },
   projectContainer: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   projectTitleContainer: {
-      marginTop: 10,
-  marginRight: 15,
-  marginLeft: 15,
-      marginTop: 10,
-  flexWrap: 'wrap',
-      flexDirection: 'row',
+    marginTop: 10,
+    marginRight: 15,
+    marginLeft: 15,
+    marginTop: 10,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
   },
   projectTitle: {
-      fontSize: 20,
-      color: '#3F51B5',
+    fontSize: 20,
+    color: '#3F51B5',
   },
   ProjectAuthroContainer: {
-      marginTop: 10,
-      marginRight: 15,
-      marginLeft: 15,
-      marginTop: 10,
-      flexWrap: 'wrap',
-      flexDirection: 'row',
+    marginTop: 10,
+    marginRight: 15,
+    marginLeft: 15,
+    marginTop: 10,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
   },
   ProjectAuthor: {
-      fontSize: 17,
-      color: '#000000',
-      textAlign: 'center',
+    fontSize: 17,
+    color: '#FFFFFF',
+    textAlign: 'center',
   },
   projectBodyContainer: {
-  marginTop: 10,
-  marginRight: 15,
-  marginLeft: 15,
-      marginTop: 10,
-  flexWrap: 'wrap',
-      flexDirection: 'row',
-      justifyContent: 'center',
+    marginTop: 10,
+    marginRight: 15,
+    marginLeft: 15,
+    marginTop: 10,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   projectBody: {
-  fontSize: 17,
-      color: '#4f4f4f',
+    fontSize: 17,
+    color: '#FFFFFF',
   },
   projectInvestment: {
-      marginTop: 50,
-      marginBottom: 50,
+    marginTop: 50,
+    marginBottom: 50,
   },
   pickerContainer: {
-      width: 120,
-      color: '#3F51B5',
+    width: 120,
+    color: '#03F5FF',
   },
 	hiddenButton: {
 		height: 45,
@@ -249,5 +263,13 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 40,
+  },
+  button: {
+    padding: 10,
+    fontSize: 17,
+  },
+  infoImage: {
+    width: 150,
+    height: 150,
   },
 });

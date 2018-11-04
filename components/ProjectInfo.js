@@ -124,69 +124,74 @@ export default class ProjectInfo extends Component {
         this.props.showOrHideProjectInfo(this.props.project)
     }
 
+    getImage(id) {
+      return `https://firebasestorage.googleapis.com/v0/b/tecnoemprende-8c3a1.appspot.com/o/${id}.png?alt=media`
+    }
+
     render() {
         let showOrHideProjectInfo = this.props.showOrHideProjectInfo;
         let project = this.props.project;
-        const image = "../assets/images/proj1.png";
         
         return(
             <Container>
-              <Content>
-                <View style={styles.container1}>
-                    <View style={styles.projectContainer}>
-                        <View style={styles.projectTitleContainer}>
-                            <Text style={styles.projectTitle}>{project.name}</Text>
-                        </View>
-
-                        <View style={styles.ProjectAuthorContainer}>
-                            <Text style={styles.ProjectAuthor}>{project.author}</Text>
-                        </View>
-                        
-                        <View style={styles.projectBodyContainer}>
-                            <Text style={styles.projectBody}>{project.description}</Text>
-                            <Image source={require(image)}
-                                   style={styles.infoImage} />
-                            <View style={styles.projectInvestment}>
-                            <Picker
-                                mode="dropdown"
-                                iosIcon={<Icon name="ios-arrow-down-outline" />}
-                                placeholderStyle={{ color: "#bfc6ea" }}
-                                placeholderIconColor="#007aff"                                    
-                                style={styles.pickerContainer}
-                                onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
-                                selectedValue={this.state.investmentValue} >
-                                    <Picker.Item label="$ 100.000" value={100000} />
-                                    <Picker.Item label="$ 50.000"  value={50000} />
-                                    <Picker.Item label="$ 20.000"  value={20000} />
-                                    <Picker.Item label="$ 10.000"  value={10000} />
-                            </Picker>
-                            </View>
-                        </View>
-                    </View>
+              <View style={styles.container}>
+                <View style={styles.projectTitleContainer}>
+                    <Text style={styles.projectTitle}>{project.name}</Text>
                 </View>
-              </Content>
-              <View style={styles.buttonsContainer}>
-                {
-                  this.props.button ?
+
+                <View style={styles.ProjectAuthorContainer}>
+                    <Text style={styles.ProjectAuthor}>{project.author}</Text>
+                </View>
+
+                <View style={styles.ProjectDescriptionContainer}>
+                    <Text style={styles.projectBody}>{project.description}</Text>
+                </View>
+
+                <View>
+                  <Image source={{uri: this.getImage(this.props.project.id)}}
+                         style={styles.infoImage} />
+                </View>
+                
+                <View style={styles.projectBodyContainer}>
+                  <View style={styles.projectInvestment}>
+                    <Picker
+                        mode="dropdown"
+                        iosIcon={<Icon name="ios-arrow-down-outline" />}
+                        placeholderStyle={{ color: "#bfc6ea" }}
+                        placeholderIconColor="#007aff"
+                        style={styles.pickerContainer}
+                        onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
+                        selectedValue={this.state.investmentValue} >
+                            <Picker.Item label="$ 100.000" value={100000} />
+                            <Picker.Item label="$ 50.000"  value={50000} />
+                            <Picker.Item label="$ 20.000"  value={20000} />
+                            <Picker.Item label="$ 10.000"  value={10000} />
+                    </Picker>
+                  </View>
+                </View>
+                <View style={styles.buttonsContainer}>
+                  {
+                    this.props.button ?
+                    <View style={styles.button}>
+                      <TouchableOpacity full primary transparent
+                              onPress={() => this.investInProject()} >
+                          <Text style={styles.buttonInvestmetnText}>
+                              Invertir
+                          </Text>
+                      </TouchableOpacity>
+                    </View> :
+                    <View
+                      style={styles.hiddenButton}
+                    />
+                  }
                   <View style={styles.button}>
                     <TouchableOpacity full primary transparent
-                            onPress={() => this.investInProject()} >
-                        <Text>
-                            Invertir
-                        </Text>
+                                        onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
+                      <Text style={styles.buttonText}>
+                          Volver
+                      </Text>
                     </TouchableOpacity>
-                  </View> :
-                  <View
-                    style={styles.hiddenButton}
-                  />
-                }
-                <View style={styles.button}>
-                  <TouchableOpacity full primary transparent
-                                      onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
-                    <Text>
-                        Volver
-                    </Text>
-                  </TouchableOpacity>
+                  </View>
                 </View>
               </View>
             </Container>   
@@ -195,14 +200,13 @@ export default class ProjectInfo extends Component {
 }
 
 const styles = StyleSheet.create({
-  container1: {
-    backgroundColor: '#091732'
-  },
-  container2: {
-    backgroundColor: '#091732'
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#091732',
   },
   projectContainer: {
-    flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
   },
@@ -210,13 +214,29 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 15,
     marginLeft: 15,
+    marginBottom  : 15,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+  },
+  ProjectAutorContainer: {
     marginTop: 10,
+    marginRight: 15,
+    marginLeft: 15,
+    marginBottom  : 15,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+  },
+  ProjectDescriptionContainer: {
+    marginTop: 10,
+    marginRight: 15,
+    marginLeft: 15,
+    marginBottom  : 15,
     flexWrap: 'wrap',
     flexDirection: 'row',
   },
   projectTitle: {
     fontSize: 20,
-    color: '#3F51B5',
+    color: '#03F5FF',
   },
   ProjectAuthroContainer: {
     marginTop: 10,
@@ -267,6 +287,12 @@ const styles = StyleSheet.create({
   button: {
     padding: 10,
     fontSize: 17,
+  },
+  buttonInvestmetnText: {
+    color: '#FF005E',
+  },
+  buttonText: {
+    color: '#FFFFFF',
   },
   infoImage: {
     width: 150,

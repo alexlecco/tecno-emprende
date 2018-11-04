@@ -244,7 +244,9 @@ export default class App extends React.Component {
           <Container>
             <View style={styles.container}>
               <View style={styles.statusBarUnderlay} />
-              <Text style={styles.investorFunds}>Fondos disponibles $ {this.state.loggedInvestor.remaining_funds}</Text>
+              <Text style={styles.investorFunds}>
+                Fondos disponibles $ <Text style={{color: '#03F5FF', fontSize: 22}}>{this.state.loggedInvestor.remaining_funds}</Text>
+              </Text>
               <Text style={styles.investorName}>
                 Inversor: <Text style={{color: '#03F5FF', fontSize: 18}}>{this.state.loggedInvestor.name}</Text>
               </Text>

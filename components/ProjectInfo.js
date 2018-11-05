@@ -140,6 +140,12 @@ export default class ProjectInfo extends Component {
       return `https://firebasestorage.googleapis.com/v0/b/tecnoemprende-8c3a1.appspot.com/o/${id}.png?alt=media`
     }
 
+    getInvestmentInProject(id) {
+        if (id === 'proj1') return this.investor.investments_inProjects.proj1.partial_investment
+        if (id === 'proj2') return this.investor.investments_inProjects.proj2.partial_investment
+        if (id === 'proj3') return this.investor.investments_inProjects.proj3.partial_investment        
+    }
+
     render() {
         let showOrHideProjectInfo = this.props.showOrHideProjectInfo;
         let project = this.props.project;
@@ -164,23 +170,27 @@ export default class ProjectInfo extends Component {
                         <Image source={{uri: this.getImage(this.props.project.id)}}
                                 style={styles.projectImage} />
                         </View>
+
+                        <View style={styles.ProjectDescriptionContainer}>
+                            <Text style={styles.projectBody}>Llevás invertidos aquí: <Text style={{color: '#03F5FF'}}>${this.getInvestmentInProject(this.props.project.id)}</Text></Text>
+                        </View>
+
+                        <View style={styles.howMuchToInvest}>
+                            <Text style={styles.projectBody}>¿Cuanto querés invertir?</Text>
+                        </View>
                         
                         <View style={styles.projectBodyContainer}>
-                        <View style={styles.projectInvestment}>
-                            <Picker
-                                mode="dropdown"
-                                iosIcon={<Icon name="ios-arrow-down-outline" />}
-                                placeholderStyle={{ color: "#bfc6ea" }}
-                                placeholderIconColor="#007aff"
-                                style={styles.pickerContainer}
-                                onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
-                                selectedValue={this.state.investmentValue} >
-                                    <Picker.Item label="$ 100.000" value={100000} />
-                                    <Picker.Item label="$ 50.000"  value={50000} />
-                                    <Picker.Item label="$ 20.000"  value={20000} />
-                                    <Picker.Item label="$ 10.000"  value={10000} />
-                            </Picker>
-                        </View>
+                            <View style={styles.projectInvestment}>
+                                <Picker
+                                    style={styles.pickerContainer}
+                                    onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
+                                    selectedValue={this.state.investmentValue} >
+                                        <Picker.Item label="$ 100.000" value={100000} />
+                                        <Picker.Item label="$ 50.000"  value={50000} />
+                                        <Picker.Item label="$ 20.000"  value={20000} />
+                                        <Picker.Item label="$ 10.000"  value={10000} />
+                                </Picker>
+                            </View>
                         </View>
                     </View>
                 </Content>
@@ -251,6 +261,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
   },
+  howMuchToInvest: {
+    marginTop: 25,
+  },
   projectTitle: {
     fontSize: 20,
     color: '#03F5FF',
@@ -269,10 +282,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   projectBodyContainer: {
-    marginTop: 10,
     marginRight: 15,
     marginLeft: 15,
-    marginTop: 10,
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -282,15 +293,16 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   projectInvestment: {
-    marginTop: 50,
     marginBottom: 50,
   },
   pickerContainer: {
+    backgroundColor: '#091732',
+    color: '#FF005E',
     width: 120,
-    color: '#03F5FF',
-  },
+    fontSize: 50,
+},
 	hiddenButton: {
-		height: 45,
+    height: 45,
   },
   buttonsContainer: {
     backgroundColor: '#091732',

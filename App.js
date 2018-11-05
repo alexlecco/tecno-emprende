@@ -192,6 +192,7 @@ export default class App extends React.Component {
   renderProject(project) {
     return(
       <ProjectCard showOrHideProjectInfo={this.showOrHideProjectInfo.bind(this)}
+                   investor={this.state.loggedInvestor}
                    project={project} />
     );
   }

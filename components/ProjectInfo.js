@@ -6,7 +6,7 @@ import {
     Footer, 
     FooterTab, 
     Button, 
-    Text, 
+    Text,
     Picker, 
     Icon, 
 } from 'native-base';

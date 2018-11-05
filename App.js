@@ -55,9 +55,8 @@ export default class App extends React.Component {
     
     showOrHideProjectInfo = this.showOrHideProjectInfo.bind(this);
     this.projectsRef = firebaseApp.database().ref().child('projects');
-    this.investorsRef = firebaseApp.database().ref().child('investors');
     this.buttonRef = firebaseApp.database().ref().child('button');
-    this.APTIRef = firebaseApp.database().ref().child('all_projects_total_investment');
+    this.investorsRef = firebaseApp.database().ref().child('investors');
 
     console.disableYellowBox = true;
     console.warn('YellowBox is disabled.');
@@ -65,37 +64,48 @@ export default class App extends React.Component {
     console.ignoredYellowBox = ['Setting a timer'];
   }
 
+  getObjectOfArray(array, index) {
+    return array[index] = array[index] || {};
+  }
+
   async componentWillMount() {
     this.listenForProjects(this.projectsRef);
     this.listenForButton(this.buttonRef);
-    this.listenForAPTI(this.APTIRef);
 
     firebaseApp.auth().onAuthStateChanged((investor) => {
       if(investor != null) {
-        this.setState({
-          logged: true,
-          loggedInvestor: {
-            id: investor.uid,
-            invested_funds: 0,
-            investments_inProjects: {
-              proj1: {
-                partial_investment: 0,
-                last_timestamp: '',
-              },
-              proj2: {
-                partial_investment: 0,
-                last_timestamp: '',
-              },
-              proj3: {
-                partial_investment: 0,
-                last_timestamp: '',
-              }
-            },
-            name: investor.displayName,
-            remaining_funds: 300000
-          }
-        })
-        this.addInvestor(investor);
+
+        this.investorsRef.on('value', (snap) => {
+
+          snap.forEach((child) => {
+            if(child.val().id === investor.uid) {
+              this.setState({
+                logged: true,
+                loggedInvestor: {
+                  id: child.val().id,
+                  invested_funds: child.val().invested_funds,
+                  investments_inProjects: {
+                    proj1: {
+                      partial_investment: child.val().investments_inProjects.proj1.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj1.last_timestamp,
+                    },
+                    proj2: {
+                      partial_investment: child.val().investments_inProjects.proj2.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj2.last_timestamp,
+                    },
+                    proj3: {
+                      partial_investment: child.val().investments_inProjects.proj3.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj3.last_timestamp,
+                    }
+                  },
+                  name: child.val().name,
+                  remaining_funds: child.val().remaining_funds,  
+                }
+              })
+            }
+          });
+
+        });
       }
     });
   }
@@ -120,21 +130,10 @@ export default class App extends React.Component {
     });
   }
 
-  getObjectOfArray(array, index) {
-    return array[index] = array[index] || {};
-  }
-
   listenForButton(buttonRef) {
     buttonRef.on('value', (snap) => {
       let button = snap.val();
       this.setState({ button: button });
-    });
-  }
-
-  listenForAPTI(APTIRef) {
-    APTIRef.on('value', (snap) => {
-      let APTI = snap.val();
-      this.setState({ APTI: APTI });
     });
   }
 
@@ -164,19 +163,6 @@ export default class App extends React.Component {
     }
   }
 
-  async loginWithFacebook() {
-    const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('294465664493407',
-      { permissions: ['public_profile'] })
-
-    if(type === 'success') {
-      const credential = firebaseApp.auth.FacebookAuthProvider.credential(token)
-      firebaseApp.auth().signInWithCredential(credential).catch((error) => {
-        console.log(error)
-      });
-      console.log("Sign-in successful");
-    }
-  }
-
   addInvestor(investor) {
     var ref =  firebaseApp.database().ref();
     var userRef = ref.child('investors');
@@ -186,19 +172,20 @@ export default class App extends React.Component {
       investments_inProjects: {
         proj1: {
           partial_investment: 0,
-          last_timestamp: '',
+          last_timestamp: 0,
         },
         proj2: {
           partial_investment: 0,
-          last_timestamp: '',
+          last_timestamp: 0,
         },
         proj3: {
           partial_investment: 0,
-          last_timestamp: '',
+          last_timestamp: 0,
         }
       },
       name: investor.displayName,
-      remaining_funds: 300000
+      remaining_funds: 300000,
+      
     }).key;
   }
   
@@ -215,9 +202,11 @@ export default class App extends React.Component {
 
     if(type === 'success') {
       const credential = firebaseApp.auth.FacebookAuthProvider.credential(token)
-      firebaseApp.auth().signInWithCredential(credential).catch((error) => {
-        console.log(error)
-      });
+      firebaseApp.auth().signInWithCredential(credential)
+        .then((user) => this.addInvestor(user))
+        .catch((error) => {
+          console.log(error)
+        });
       console.log("Sign-in successful");
     }
   }

@@ -159,9 +159,9 @@ export default class ProjectInfo extends Component {
                     <Text style={styles.projectBody}>{project.description}</Text>
                 </View>
 
-                <View>
+                <View style={styles.projectImageContainer}>
                   <Image source={{uri: this.getImage(this.props.project.id)}}
-                         style={styles.infoImage} />
+                         style={styles.projectImage} />
                 </View>
                 
                 <View style={styles.projectBodyContainer}>
@@ -181,31 +181,31 @@ export default class ProjectInfo extends Component {
                     </Picker>
                   </View>
                 </View>
-                <View style={styles.buttonsContainer}>
-                  {
-                    this.props.button ?
-                    <View style={styles.button}>
-                      <TouchableOpacity full primary transparent
-                              onPress={() => this.investInProject()} >
-                          <Text style={styles.buttonInvestmetnText}>
-                              Invertir
-                          </Text>
-                      </TouchableOpacity>
-                    </View> :
-                    <View
-                      style={styles.hiddenButton}
-                    />
-                  }
-                  <View style={styles.button}>
+            </View>
+            <View style={styles.buttonsContainer}>
+                {
+                this.props.button ?
+                <View style={styles.button}>
                     <TouchableOpacity full primary transparent
-                                        onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
-                      <Text style={styles.buttonText}>
-                          Volver
-                      </Text>
+                            onPress={() => this.investInProject()} >
+                        <Text style={styles.buttonInvestmetnText}>
+                            Invertir
+                        </Text>
                     </TouchableOpacity>
-                  </View>
+                </View> :
+                <View
+                    style={styles.hiddenButton}
+                />
+                }
+                <View style={styles.button}>
+                <TouchableOpacity full primary transparent
+                                    onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
+                    <Text style={styles.buttonText}>
+                        Volver
+                    </Text>
+                </TouchableOpacity>
                 </View>
-              </View>
+            </View>
             </Container>   
         );
     }
@@ -288,9 +288,7 @@ const styles = StyleSheet.create({
 		height: 45,
   },
   buttonsContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    backgroundColor: '#091732',
     alignItems: 'center',
     paddingLeft: 20,
     paddingRight: 20,
@@ -306,7 +304,11 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
   },
-  infoImage: {
+  projectImageContainer: {
+    width: 201,
+    height: 201,
+  },
+  projectImage: {
     width: 200,
     height: 200,
   },

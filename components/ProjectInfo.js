@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Platform, StyleSheet, View, TouchableOpacity, Alert, Image, } from 'react-native';
+import {Platform, StyleSheet, View, TouchableOpacity, Alert, Image, BackHandler, } from 'react-native';
 import {
     Container, 
     Content, 
@@ -22,6 +22,18 @@ export default class ProjectInfo extends Component {
         this.project = this.props.project;
         this.investor = this.props.investor;
         this.APTI = this.props.APTI;
+    }
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+    }
+    
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
+    }
+    
+    handleBackButton() {
+        return true;
     }
 
     investInProject() {
@@ -295,7 +307,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   infoImage: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
   },
 });

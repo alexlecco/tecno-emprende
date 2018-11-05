@@ -145,73 +145,78 @@ export default class ProjectInfo extends Component {
         let project = this.props.project;
         
         return(
-            <Container>
-              <View style={styles.container}>
-                <View style={styles.projectTitleContainer}>
-                    <Text style={styles.projectTitle}>{project.name}</Text>
-                </View>
+            <Container style={styles.containerAll}>
+                <Content>
+                    <View style={styles.container}>
+                        <View style={styles.projectTitleContainer}>
+                            <Text style={styles.projectTitle}>{project.name}</Text>
+                        </View>
 
-                <View style={styles.ProjectAuthorContainer}>
-                    <Text style={styles.ProjectAuthor}>{project.author}</Text>
-                </View>
+                        <View style={styles.ProjectAuthorContainer}>
+                            <Text style={styles.ProjectAuthor}>{project.author}</Text>
+                        </View>
 
-                <View style={styles.ProjectDescriptionContainer}>
-                    <Text style={styles.projectBody}>{project.description}</Text>
-                </View>
+                        <View style={styles.ProjectDescriptionContainer}>
+                            <Text style={styles.projectBody}>{project.description}</Text>
+                        </View>
 
-                <View style={styles.projectImageContainer}>
-                  <Image source={{uri: this.getImage(this.props.project.id)}}
-                         style={styles.projectImage} />
+                        <View style={styles.projectImageContainer}>
+                        <Image source={{uri: this.getImage(this.props.project.id)}}
+                                style={styles.projectImage} />
+                        </View>
+                        
+                        <View style={styles.projectBodyContainer}>
+                        <View style={styles.projectInvestment}>
+                            <Picker
+                                mode="dropdown"
+                                iosIcon={<Icon name="ios-arrow-down-outline" />}
+                                placeholderStyle={{ color: "#bfc6ea" }}
+                                placeholderIconColor="#007aff"
+                                style={styles.pickerContainer}
+                                onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
+                                selectedValue={this.state.investmentValue} >
+                                    <Picker.Item label="$ 100.000" value={100000} />
+                                    <Picker.Item label="$ 50.000"  value={50000} />
+                                    <Picker.Item label="$ 20.000"  value={20000} />
+                                    <Picker.Item label="$ 10.000"  value={10000} />
+                            </Picker>
+                        </View>
+                        </View>
+                    </View>
+                </Content>
+                <View style={styles.buttonsContainer}>
+                    {
+                    this.props.button ?
+                    <View style={styles.button}>
+                        <TouchableOpacity full primary transparent
+                                onPress={() => this.investInProject()} >
+                            <Text style={styles.buttonInvestmetnText}>
+                                Invertir
+                            </Text>
+                        </TouchableOpacity>
+                    </View> :
+                    <View
+                        style={styles.hiddenButton}
+                    />
+                    }
+                    <View style={styles.button}>
+                        <TouchableOpacity full primary transparent
+                                            onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
+                            <Text style={styles.buttonText}>
+                                Volver
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                
-                <View style={styles.projectBodyContainer}>
-                  <View style={styles.projectInvestment}>
-                    <Picker
-                        mode="dropdown"
-                        iosIcon={<Icon name="ios-arrow-down-outline" />}
-                        placeholderStyle={{ color: "#bfc6ea" }}
-                        placeholderIconColor="#007aff"
-                        style={styles.pickerContainer}
-                        onValueChange={(investmentValue) => this.setState({investmentValue: investmentValue})}
-                        selectedValue={this.state.investmentValue} >
-                            <Picker.Item label="$ 100.000" value={100000} />
-                            <Picker.Item label="$ 50.000"  value={50000} />
-                            <Picker.Item label="$ 20.000"  value={20000} />
-                            <Picker.Item label="$ 10.000"  value={10000} />
-                    </Picker>
-                  </View>
-                </View>
-            </View>
-            <View style={styles.buttonsContainer}>
-                {
-                this.props.button ?
-                <View style={styles.button}>
-                    <TouchableOpacity full primary transparent
-                            onPress={() => this.investInProject()} >
-                        <Text style={styles.buttonInvestmetnText}>
-                            Invertir
-                        </Text>
-                    </TouchableOpacity>
-                </View> :
-                <View
-                    style={styles.hiddenButton}
-                />
-                }
-                <View style={styles.button}>
-                <TouchableOpacity full primary transparent
-                                    onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
-                    <Text style={styles.buttonText}>
-                        Volver
-                    </Text>
-                </TouchableOpacity>
-                </View>
-            </View>
             </Container>   
         );
     }
 }
 
 const styles = StyleSheet.create({
+    containerAll: {
+        backgroundColor: '#091732',
+    },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -290,9 +295,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     backgroundColor: '#091732',
     alignItems: 'center',
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 40,
+    padding: 20,
   },
   button: {
     padding: 10,

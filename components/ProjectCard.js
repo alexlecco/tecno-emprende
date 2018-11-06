@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Platform, StyleSheet, View, TouchableOpacity, } from 'react-native';
+import { Platform, StyleSheet, View, TouchableOpacity, Dimensions, } from 'react-native';
 import { Button, Text, } from 'native-base';
 
 export default class ProjectCard extends Component {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
 		backgroundColor: '#091732',
-		width: 400
+		width: Dimensions.get('window').width,
   },
   projectText: {
     color: '#FFFFFF',

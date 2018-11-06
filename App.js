@@ -197,6 +197,17 @@ export default class App extends React.Component {
     );
   }
 
+  showLoginButton() {
+    setTimeout(() => {
+      return
+        <View style={styles.loginContainer}>
+          <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
+            <Text style={styles.loginButton}> Ingresá con Facebook </Text>
+          </TouchableOpacity>
+        </View>
+    }, 3000);
+  }
+
   async loginWithFacebook() {
     const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('294465664493407',
       { permissions: ['public_profile'] })
@@ -259,11 +270,7 @@ export default class App extends React.Component {
               <ImageBackground
                 source={require('./assets/images/loginScreen.png')}
                 style={{width: '100%', height: '100%'}}>
-                  <View style={styles.loginContainer}>
-                    <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
-                      <Text style={styles.loginButton}> Ingresá con Facebook </Text>
-                    </TouchableOpacity>
-                  </View>
+                  {this.showLoginButton()}
               </ImageBackground>
 
             </View>

@@ -192,32 +192,33 @@ export default class ProjectInfo extends Component {
                                 </Picker>
                             </View>
                         </View>
+                        
+                        <View style={styles.buttonsContainer}>
+                            {
+                            this.props.button ?
+                            <View style={styles.button}>
+                                <TouchableOpacity full primary transparent
+                                        onPress={() => this.investInProject()} >
+                                    <Text style={styles.buttonInvestmetnText}>
+                                        Invertir
+                                    </Text>
+                                </TouchableOpacity>
+                            </View> :
+                            <View
+                                style={styles.hiddenButton}
+                            />
+                            }
+                            <View style={styles.button}>
+                                <TouchableOpacity full primary transparent
+                                                    onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
+                                    <Text style={styles.buttonText}>
+                                        Volver
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
                     </View>
                 </Content>
-                <View style={styles.buttonsContainer}>
-                    {
-                    this.props.button ?
-                    <View style={styles.button}>
-                        <TouchableOpacity full primary transparent
-                                onPress={() => this.investInProject()} >
-                            <Text style={styles.buttonInvestmetnText}>
-                                Invertir
-                            </Text>
-                        </TouchableOpacity>
-                    </View> :
-                    <View
-                        style={styles.hiddenButton}
-                    />
-                    }
-                    <View style={styles.button}>
-                        <TouchableOpacity full primary transparent
-                                            onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
-                            <Text style={styles.buttonText}>
-                                Volver
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
             </Container>   
         );
     }

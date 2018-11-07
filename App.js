@@ -41,7 +41,35 @@ export default class App extends React.Component {
           proj3: {
             partial_investment: 0,
             last_timestamp: '',
-          }
+          },
+          proj4: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj5: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj6: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj7: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj8: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj9: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj10: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
         },
         name: '',
         remaining_funds: 0
@@ -96,7 +124,35 @@ export default class App extends React.Component {
                     proj3: {
                       partial_investment: child.val().investments_inProjects.proj3.partial_investment,
                       last_timestamp: child.val().investments_inProjects.proj3.last_timestamp,
-                    }
+                    },
+                    proj4: {
+                      partial_investment: child.val().investments_inProjects.proj4.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj4.last_timestamp,
+                    },
+                    proj5: {
+                      partial_investment: child.val().investments_inProjects.proj5.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj5.last_timestamp,
+                    },
+                    proj6: {
+                      partial_investment: child.val().investments_inProjects.proj6.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj6.last_timestamp,
+                    },
+                    proj7: {
+                      partial_investment: child.val().investments_inProjects.proj7.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj7.last_timestamp,
+                    },
+                    proj8: {
+                      partial_investment: child.val().investments_inProjects.proj8.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj8.last_timestamp,
+                    },
+                    proj9: {
+                      partial_investment: child.val().investments_inProjects.proj9.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj9.last_timestamp,
+                    },
+                    proj10: {
+                      partial_investment: child.val().investments_inProjects.proj10.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj10.last_timestamp,
+                    },
                   },
                   name: child.val().name,
                   remaining_funds: child.val().remaining_funds,  
@@ -172,16 +228,44 @@ export default class App extends React.Component {
       investments_inProjects: {
         proj1: {
           partial_investment: 0,
-          last_timestamp: 0,
+          last_timestamp: '',
         },
         proj2: {
           partial_investment: 0,
-          last_timestamp: 0,
+          last_timestamp: '',
         },
         proj3: {
           partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj4: {
+          partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj5: {
+          partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj6: {
+          partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj7: {
+          partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj8: {
+          partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj9: {
+          partial_investment: 0,
+          last_timestamp: '',
+        },
+        proj10: {
+          partial_investment: 0,
           last_timestamp: 0,
-        }
+        },
       },
       name: investor.displayName,
       remaining_funds: 300000,

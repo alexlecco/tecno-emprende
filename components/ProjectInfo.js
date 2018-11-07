@@ -66,26 +66,31 @@ export default class ProjectInfo extends Component {
                                     partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
                                     last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
                                 },
-                            }
-                        });
-                    break;
-                
-                case 'proj2':
-                    firebaseApp.database()
-                       .ref(`investors/${this.investor.id}`)
-                       .update({
-                            remaining_funds: current_funds,
-                            invested_funds: new_invertedFunds,
-                            investments_inProjects: {
-                                proj1: {
-                                    partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
-                                    last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                                proj4: {
+                                    partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                    last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
                                 },
-                                proj2: {
-                                    partial_investment: new_partialInvestment_proj2,
-                                    last_timestamp: now
+                                proj5: {
+                                    partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                    last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
                                 },
-                                proj3: {
+                                proj6: {
+                                    partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                    last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                                },
+                                proj7: {
+                                    partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                    last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                                },
+                                proj8: {
+                                    partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                    last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                                },
+                                proj9: {
+                                    partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                    last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                                },
+                                proj10: {
                                     partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
                                     last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
                                 },
@@ -93,28 +98,464 @@ export default class ProjectInfo extends Component {
                         });
                     break;
                 
+                case 'proj2':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: new_partialInvestment_proj2,
+                                last_timestamp: now
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
                 case 'proj3':
-                    firebaseApp.database()
-                       .ref(`investors/${this.investor.id}`)
-                       .update({
-                            remaining_funds: current_funds,
-                            invested_funds: new_invertedFunds,
-                            investments_inProjects: {
-                                proj1: {
-                                    partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
-                                    last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
-                                },
-                                proj2: {
-                                    partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
-                                    last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
-                                },
-                                proj3: {
-                                    partial_investment: new_partialInvestment_proj3,
-                                    last_timestamp: now
-                                }
-                            }
-                        });
-                    break;
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: new_partialInvestment_proj3,
+                                last_timestamp: now
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj4':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: new_partialInvestment_proj4,
+                                last_timestamp: now
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj5':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: new_partialInvestment_proj5,
+                                last_timestamp: now
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj6':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: new_partialInvestment_proj6,
+                                last_timestamp: now
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj7':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: new_partialInvestment_proj7,
+                                last_timestamp: now
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj8':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: new_partialInvestment_proj8,
+                                last_timestamp: now
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj9':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: new_partialInvestment_proj9,
+                                last_timestamp: now
+                            },
+                            proj10: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                        }
+                    });
+                break;
+
+                case 'proj10':
+                firebaseApp.database()
+                    .ref(`investors/${this.investor.id}`)
+                    .update({
+                        remaining_funds: current_funds,
+                        invested_funds: new_invertedFunds,
+                        investments_inProjects: {
+                            proj1: {
+                                partial_investment: this.investor.investments_inProjects.proj1.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj1.last_timestamp
+                            },
+                            proj2: {
+                                partial_investment: this.investor.investments_inProjects.proj2.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj2.last_timestamp
+                            },
+                            proj3: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj4: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj5: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj6: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj7: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj8: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj9: {
+                                partial_investment: this.investor.investments_inProjects.proj3.partial_investment,
+                                last_timestamp: this.investor.investments_inProjects.proj3.last_timestamp
+                            },
+                            proj10: {
+                                partial_investment: new_partialInvestment_proj10,
+                                last_timestamp: now
+                            },
+                        }
+                    });
+                break;
             }
 
             firebaseApp.database().ref().child('investments').push({

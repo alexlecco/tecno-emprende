@@ -11,7 +11,14 @@ export default class ProjectCard extends Component {
 	getInvestmentInProject(id) {
 		if (id === 'proj1') return this.props.investor.investments_inProjects.proj1.partial_investment
 		if (id === 'proj2') return this.props.investor.investments_inProjects.proj2.partial_investment
-		if (id === 'proj3') return this.props.investor.investments_inProjects.proj3.partial_investment        
+		if (id === 'proj3') return this.props.investor.investments_inProjects.proj3.partial_investment
+		if (id === 'proj4') return this.props.investor.investments_inProjects.proj4.partial_investment
+		if (id === 'proj5') return this.props.investor.investments_inProjects.proj5.partial_investment
+		if (id === 'proj6') return this.props.investor.investments_inProjects.proj6.partial_investment
+		if (id === 'proj7') return this.props.investor.investments_inProjects.proj7.partial_investment
+		if (id === 'proj8') return this.props.investor.investments_inProjects.proj8.partial_investment
+		if (id === 'proj9') return this.props.investor.investments_inProjects.proj9.partial_investment
+		if (id === 'proj10') return this.props.investor.investments_inProjects.proj10.partial_investment
 	}
 
 	render() {

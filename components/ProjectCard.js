@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
 		backgroundColor: '#091732',
-		width: Dimensions.get('window').width,
+		width: Dimensions.get('window').width - 30,
   },
   projectText: {
     color: '#FFFFFF',
@@ -56,10 +56,13 @@ const styles = StyleSheet.create({
   projectTextName: {
 		color: '#FFFFFF',
 		fontSize: 20,
+		textAlign: 'center',
+		fontWeight: 'bold',
 	},
   projectTextAuthor: {
 		color: '#FFFFFF',
 		fontSize: 18,
+		textAlign: 'center',
 	},
 	buttonContainer: {
 		flex: 1,

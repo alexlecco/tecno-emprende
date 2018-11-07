@@ -30,39 +30,39 @@ export default class App extends React.Component {
         id: '',
         invested_funds: 0,
         investments_inProjects: {
-          proj1: {
+          proj01: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj2: {
+          proj02: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj3: {
+          proj03: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj4: {
+          proj04: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj5: {
+          proj05: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj6: {
+          proj06: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj7: {
+          proj07: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj8: {
+          proj08: {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj9: {
+          proj09: {
             partial_investment: 0,
             last_timestamp: '',
           },
@@ -113,41 +113,41 @@ export default class App extends React.Component {
                   id: child.val().id,
                   invested_funds: child.val().invested_funds,
                   investments_inProjects: {
-                    proj1: {
-                      partial_investment: child.val().investments_inProjects.proj1.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj1.last_timestamp,
+                    proj01: {
+                      partial_investment: child.val().investments_inProjects.proj01.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj01.last_timestamp,
                     },
-                    proj2: {
-                      partial_investment: child.val().investments_inProjects.proj2.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj2.last_timestamp,
+                    proj02: {
+                      partial_investment: child.val().investments_inProjects.proj02.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj02.last_timestamp,
                     },
-                    proj3: {
-                      partial_investment: child.val().investments_inProjects.proj3.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj3.last_timestamp,
+                    proj03: {
+                      partial_investment: child.val().investments_inProjects.proj03.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj03.last_timestamp,
                     },
-                    proj4: {
-                      partial_investment: child.val().investments_inProjects.proj4.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj4.last_timestamp,
+                    proj04: {
+                      partial_investment: child.val().investments_inProjects.proj04.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj04.last_timestamp,
                     },
-                    proj5: {
-                      partial_investment: child.val().investments_inProjects.proj5.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj5.last_timestamp,
+                    proj05: {
+                      partial_investment: child.val().investments_inProjects.proj05.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj05.last_timestamp,
                     },
-                    proj6: {
-                      partial_investment: child.val().investments_inProjects.proj6.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj6.last_timestamp,
+                    proj06: {
+                      partial_investment: child.val().investments_inProjects.proj06.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj06.last_timestamp,
                     },
-                    proj7: {
-                      partial_investment: child.val().investments_inProjects.proj7.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj7.last_timestamp,
+                    proj07: {
+                      partial_investment: child.val().investments_inProjects.proj07.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj07.last_timestamp,
                     },
-                    proj8: {
-                      partial_investment: child.val().investments_inProjects.proj8.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj8.last_timestamp,
+                    proj08: {
+                      partial_investment: child.val().investments_inProjects.proj08.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj08.last_timestamp,
                     },
-                    proj9: {
-                      partial_investment: child.val().investments_inProjects.proj9.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj9.last_timestamp,
+                    proj09: {
+                      partial_investment: child.val().investments_inProjects.proj09.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj09.last_timestamp,
                     },
                     proj10: {
                       partial_investment: child.val().investments_inProjects.proj10.partial_investment,
@@ -226,39 +226,39 @@ export default class App extends React.Component {
       id: investor.uid,
       invested_funds: 0,
       investments_inProjects: {
-        proj1: {
+        proj01: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj2: {
+        proj02: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj3: {
+        proj03: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj4: {
+        proj04: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj5: {
+        proj05: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj6: {
+        proj06: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj7: {
+        proj07: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj8: {
+        proj08: {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj9: {
+        proj09: {
           partial_investment: 0,
           last_timestamp: '',
         },

@@ -197,15 +197,14 @@ export default class App extends React.Component {
     );
   }
 
-  showLoginButton() {
-    setTimeout(() => {
-      return
-        <View style={styles.loginContainer}>
-          <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
-            <Text style={styles.loginButton}> Ingresá con Facebook </Text>
-          </TouchableOpacity>
-        </View>
-    }, 3000);
+  returnFacebookLogin() {
+    return (
+      <View style={styles.loginContainer}>
+        <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
+          <Text style={styles.loginButton}> Ingresá con Facebook </Text>
+        </TouchableOpacity>
+      </View>
+    );
   }
 
   async loginWithFacebook() {
@@ -225,6 +224,7 @@ export default class App extends React.Component {
 
   render() {
     let showOrHideProjectInfo = this.showOrHideProjectInfo;
+    let FacebookLogin = this.returnFacebookLogin();
 
     if(this.state.logged) {
       if(this.state.projectInfoVisible) {
@@ -270,7 +270,7 @@ export default class App extends React.Component {
               <ImageBackground
                 source={require('./assets/images/loginScreen.png')}
                 style={{width: '100%', height: '100%'}}>
-                  {this.showLoginButton()}
+                  {FacebookLogin}
               </ImageBackground>
 
             </View>

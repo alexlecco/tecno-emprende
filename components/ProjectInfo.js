@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   projectInvestment: {
-    marginBottom: 50,
+    marginBottom: 30,
   },
   pickerContainer: {
     backgroundColor: '#091732',

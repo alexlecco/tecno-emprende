@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Platform, StyleSheet, View, TouchableOpacity, Alert, Image, BackHandler, } from 'react-native';
+import {Platform, StyleSheet, View, TouchableOpacity, Alert, Image, BackHandler, Dimensions, } from 'react-native';
 import {
     Container, 
     Content, 
@@ -584,7 +584,14 @@ export default class ProjectInfo extends Component {
     getInvestmentInProject(id) {
         if (id === 'proj1') return this.investor.investments_inProjects.proj1.partial_investment
         if (id === 'proj2') return this.investor.investments_inProjects.proj2.partial_investment
-        if (id === 'proj3') return this.investor.investments_inProjects.proj3.partial_investment        
+        if (id === 'proj3') return this.investor.investments_inProjects.proj3.partial_investment
+        if (id === 'proj4') return this.investor.investments_inProjects.proj4.partial_investment
+        if (id === 'proj5') return this.investor.investments_inProjects.proj5.partial_investment
+        if (id === 'proj6') return this.investor.investments_inProjects.proj6.partial_investment
+        if (id === 'proj7') return this.investor.investments_inProjects.proj7.partial_investment
+        if (id === 'proj8') return this.investor.investments_inProjects.proj8.partial_investment
+        if (id === 'proj9') return this.investor.investments_inProjects.proj9.partial_investment
+        if (id === 'proj10') return this.investor.investments_inProjects.proj10.partial_investment
     }
 
     render() {
@@ -608,12 +615,16 @@ export default class ProjectInfo extends Component {
                         </View>
 
                         <View style={styles.projectImageContainer}>
-                        <Image source={{uri: this.getImage(this.props.project.id)}}
-                                style={styles.projectImage} />
+                            <Image source={{uri: this.getImage(this.props.project.id)}}
+                                    style={styles.projectImage} />
                         </View>
 
                         <View style={styles.ProjectDescriptionContainer}>
-                            <Text style={styles.projectBody}>Llevás invertidos aquí: <Text style={{color: '#03F5FF'}}>${this.getInvestmentInProject(this.props.project.id)}</Text></Text>
+                            <Text style={styles.projectBody}> Llevás invertidos aquí:
+                                <Text style={{color: '#03F5FF'}}>
+                                    ${this.getInvestmentInProject(this.props.project.id)}
+                                </Text>
+                            </Text>
                         </View>
 
                         <View style={styles.howMuchToInvest}>
@@ -762,8 +773,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   projectImageContainer: {
-    width: 201,
-    height: 201,
+    width: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').width / 2,
   },
   projectImage: {
     width: 200,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity, Alert, Image, BackHandler, Dimensions, ToastAndroid, } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Alert, Image, BackHandler, Dimensions, } from 'react-native';
 import {
     Container, 
     Content,
@@ -20,17 +20,12 @@ export default class ProjectInfo extends Component {
         this.APTI = this.props.APTI;
     }
 
-    componentDidMount() {
-        BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', () => {return true});
     }
     
     componentWillUnmount() {
-        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
-    }
-    
-    handleBackButton() {
-        ToastAndroid.show('Back button is pressed', ToastAndroid.SHORT);
-        return true;
+        BackHandler.removeEventListener('hardwareBackPress', () => {return true});
     }
 
     investInProject() {
@@ -670,11 +665,11 @@ export default class ProjectInfo extends Component {
                        .update({total_investment: new_total_investment});
 
             Alert.alert("Inversión realizada con exito");
+            this.props.showOrHideProjectInfo(this.props.project)
         } else {
             Alert.alert("Fondos insuficientes");
         }
 
-        this.props.showOrHideProjectInfo(this.props.project)
     }
 
     getImage(id) {

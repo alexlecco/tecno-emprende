@@ -7,8 +7,6 @@ import {
   YellowBox,
   ImageBackground,
   TouchableOpacity,
-  BackAndroid,
-  Dimensions,
 } from 'react-native';
 import { Container, Text, Button, } from 'native-base';
 import { firebaseApp } from './firebase';
@@ -173,18 +171,6 @@ export default class App extends React.Component {
         });
       }
     });
-  }
-
-  componentDidMount() {
-    BackAndroid.addEventListener('hardwareBackPress', this.handleBackButton);
-  }
-  
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', this.handleBackButton);
-  }
-  
-  handleBackButton() {
-    return true;
   }
 
   listenForProjects(projectsRef) {

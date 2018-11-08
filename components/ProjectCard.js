@@ -19,6 +19,7 @@ export default class ProjectCard extends Component {
 		if (id === 'proj08') return this.props.investor.investments_inProjects.proj08.partial_investment
 		if (id === 'proj09') return this.props.investor.investments_inProjects.proj09.partial_investment
 		if (id === 'proj10') return this.props.investor.investments_inProjects.proj10.partial_investment
+		if (id === 'proj11') return this.props.investor.investments_inProjects.proj11.partial_investment
 	}
 
 	render() {
@@ -29,7 +30,7 @@ export default class ProjectCard extends Component {
 			<View style={styles.projectCardContainer}>
 				<Text style={styles.projectTextName}>{this.props.project.name}</Text>
 				<Text style={styles.projectTextAuthor}>{this.props.project.author}</Text>
-				<Text style={styles.projectText}>Llevás invertido aqui: <Text style={{color: '#03F5FF'}}>${this.getInvestmentInProject(this.props.project.id)}</Text></Text>
+				<Text style={styles.projectText}>Llevás invertido aqui: <Text style={{color: '#03F5FF'}}>$ {this.getInvestmentInProject(this.props.project.id)}</Text></Text>
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity primary transparent
 							onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
 		backgroundColor: '#091732',
-		width: Dimensions.get('window').width - 30,
+		width: Dimensions.get('window').width - 40,
   },
   projectText: {
     color: '#FFFFFF',

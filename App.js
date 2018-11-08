@@ -6,8 +6,9 @@ import {
   ListView,
   YellowBox,
   ImageBackground,
-  TextInput,
   TouchableOpacity,
+  BackAndroid,
+  Dimensions,
 } from 'react-native';
 import { Container, Text, Button, } from 'native-base';
 import { firebaseApp } from './firebase';
@@ -67,6 +68,10 @@ export default class App extends React.Component {
             last_timestamp: '',
           },
           proj10: {
+            partial_investment: 0,
+            last_timestamp: '',
+          },
+          proj11: {
             partial_investment: 0,
             last_timestamp: '',
           },
@@ -153,6 +158,10 @@ export default class App extends React.Component {
                       partial_investment: child.val().investments_inProjects.proj10.partial_investment,
                       last_timestamp: child.val().investments_inProjects.proj10.last_timestamp,
                     },
+                    proj11: {
+                      partial_investment: child.val().investments_inProjects.proj11.partial_investment,
+                      last_timestamp: child.val().investments_inProjects.proj11.last_timestamp,
+                    },
                   },
                   name: child.val().name,
                   remaining_funds: child.val().remaining_funds,  
@@ -164,6 +173,18 @@ export default class App extends React.Component {
         });
       }
     });
+  }
+
+  componentDidMount() {
+    BackAndroid.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
+  
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress', this.handleBackButton);
+  }
+  
+  handleBackButton() {
+    return true;
   }
 
   listenForProjects(projectsRef) {
@@ -264,7 +285,11 @@ export default class App extends React.Component {
         },
         proj10: {
           partial_investment: 0,
-          last_timestamp: 0,
+          last_timestamp: '',
+        },
+        proj11: {
+          partial_investment: 0,
+          last_timestamp: '',
         },
       },
       name: investor.displayName,

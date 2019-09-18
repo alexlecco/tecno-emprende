@@ -243,7 +243,7 @@ export default class App extends React.Component {
       <View style={styles.loginContainer}>
         <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
           {
-            !this.state.isLoading && <Text style={styles.loginButton}> Ingresá con Facebook </Text>
+            <Text style={styles.loginButton}> Ingresá con Facebook </Text>
           }
         </TouchableOpacity>
       </View>

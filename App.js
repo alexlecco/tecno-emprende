@@ -297,10 +297,10 @@ export default class App extends React.Component {
             <View style={styles.container}>
               <View style={styles.statusBarUnderlay} />
               <Text style={styles.investorFunds}>
-                Fondos disponibles $ <Text style={{color: '#03F5FF', fontSize: 22}}>{this.state.loggedInvestor.remaining_funds}</Text>
+                Fondos disponibles $ <Text style={{color: '#D2ED22', fontSize: 22}}>{this.state.loggedInvestor.remaining_funds}</Text>
               </Text>
               <Text style={styles.investorName}>
-                Inversor: <Text style={{color: '#03F5FF', fontSize: 18}}>{this.state.loggedInvestor.name}</Text>
+                Inversor: <Text style={{color: '#D2ED22', fontSize: 18}}>{this.state.loggedInvestor.name}</Text>
               </Text>
               <ScrollView>
                 <ListView
@@ -336,11 +336,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#091732',
+    backgroundColor: '#4D3D95',
   },
   statusBarUnderlay: {
     height: 24,
-    backgroundColor: '#091732',
+    backgroundColor: '#4D3D95',
   },
   investorFunds: {
     color: '#FFFFFF',

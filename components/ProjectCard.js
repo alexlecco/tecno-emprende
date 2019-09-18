@@ -25,7 +25,7 @@ export default class ProjectCard extends Component {
 			<View style={styles.projectCardContainer}>
 				<Text style={styles.projectTextName}>{this.props.project.name}</Text>
 				<Text style={styles.projectTextAuthor}>{this.props.project.author}</Text>
-				<Text style={styles.projectText}>Llevás invertido aqui: <Text style={{color: '#03F5FF'}}>$ {this.getInvestmentInProject(this.props.project.id)}</Text></Text>
+				<Text style={styles.projectText}>Llevás invertido aqui: <Text style={{color: '#D2ED22'}}>$ {this.getInvestmentInProject(this.props.project.id)}</Text></Text>
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity primary transparent
 							onPress={() => this.props.showOrHideProjectInfo(this.props.project)} >
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingTop: 10,
     paddingBottom: 10,
-		backgroundColor: '#091732',
+		backgroundColor: '#4D3D95',
 		width: Dimensions.get('window').width - 40,
   },
   projectText: {
@@ -76,13 +76,13 @@ const styles = StyleSheet.create({
 	},
 	lineDivider: {
 		borderBottomWidth: 1,
-		borderBottomColor: '#FF005E',
+		borderBottomColor: '#F92672',
 		paddingLeft: 10,
 		paddingRight: 10,
 		width: 250,
   },
   button: {
-    color: '#FF005E',
+    color: '#F92672',
     fontSize: 20,
   }
 });

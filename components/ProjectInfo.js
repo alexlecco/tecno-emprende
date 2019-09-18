@@ -311,7 +311,7 @@ export default class ProjectInfo extends Component {
                         </View>
 
                         <View style={styles.ProjectDescriptionContainer}>
-                            <Text style={styles.projectBody}> Llevás invertidos aquí: <Text style={{color: '#03F5FF'}}>$ {this.getInvestmentInProject(this.props.project.id)}</Text>
+                            <Text style={styles.projectBody}> Llevás invertidos aquí: <Text style={{color: '#D2ED22'}}>$ {this.getInvestmentInProject(this.props.project.id)}</Text>
                             </Text>
                         </View>
 
@@ -366,13 +366,13 @@ export default class ProjectInfo extends Component {
 
 const styles = StyleSheet.create({
     containerAll: {
-        backgroundColor: '#091732',
+        backgroundColor: '#4D3D95',
     },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#091732',
+    backgroundColor: '#4D3D95',
   },
   projectContainer: {
     flexDirection: 'column',
@@ -407,7 +407,7 @@ const styles = StyleSheet.create({
   },
   projectTitle: {
     fontSize: 20,
-    color: '#03F5FF',
+    color: '#D2ED22',
   },
   ProjectAuthroContainer: {
     marginTop: 10,
@@ -439,7 +439,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   pickerContainer: {
-    backgroundColor: '#091732',
+    backgroundColor: '#4D3D95',
     color: '#FF005E',
     width: 120,
     fontSize: 50,
@@ -448,7 +448,7 @@ const styles = StyleSheet.create({
     height: 45,
   },
   buttonsContainer: {
-    backgroundColor: '#091732',
+    backgroundColor: '#4D3D95',
     alignItems: 'center',
     padding: 20,
   },
@@ -458,9 +458,11 @@ const styles = StyleSheet.create({
   },
   buttonInvestmetnText: {
     color: '#FF005E',
+    fontSize: 20,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#FF005E',
+    fontSize: 20,
   },
   projectImageContainer: {
     width: Dimensions.get('window').width / 2,

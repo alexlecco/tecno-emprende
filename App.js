@@ -55,26 +55,6 @@ export default class App extends React.Component {
             partial_investment: 0,
             last_timestamp: '',
           },
-          proj07: {
-            partial_investment: 0,
-            last_timestamp: '',
-          },
-          proj08: {
-            partial_investment: 0,
-            last_timestamp: '',
-          },
-          proj09: {
-            partial_investment: 0,
-            last_timestamp: '',
-          },
-          proj10: {
-            partial_investment: 0,
-            last_timestamp: '',
-          },
-          proj11: {
-            partial_investment: 0,
-            last_timestamp: '',
-          },
         },
         name: '',
         remaining_funds: 0
@@ -83,6 +63,7 @@ export default class App extends React.Component {
       button: true,
       APTI: 0,
       logged: false,
+      isLoading: true,
       dataSourceProjects: new ListView.DataSource({ rowHasChanged: (row1, row2) => row1 !== row2 }),
     };
     
@@ -107,9 +88,10 @@ export default class App extends React.Component {
 
     firebaseApp.auth().onAuthStateChanged((investor) => {
       if(investor != null) {
-
+        
         this.investorsRef.on('value', (snap) => {
-
+          this.setState({isLoading: false})
+          
           snap.forEach((child) => {
             if(child.val().id === investor.uid) {
               this.setState({
@@ -142,26 +124,6 @@ export default class App extends React.Component {
                       partial_investment: child.val().investments_inProjects.proj06.partial_investment,
                       last_timestamp: child.val().investments_inProjects.proj06.last_timestamp,
                     },
-                    proj07: {
-                      partial_investment: child.val().investments_inProjects.proj07.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj07.last_timestamp,
-                    },
-                    proj08: {
-                      partial_investment: child.val().investments_inProjects.proj08.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj08.last_timestamp,
-                    },
-                    proj09: {
-                      partial_investment: child.val().investments_inProjects.proj09.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj09.last_timestamp,
-                    },
-                    proj10: {
-                      partial_investment: child.val().investments_inProjects.proj10.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj10.last_timestamp,
-                    },
-                    proj11: {
-                      partial_investment: child.val().investments_inProjects.proj11.partial_investment,
-                      last_timestamp: child.val().investments_inProjects.proj11.last_timestamp,
-                    },
                   },
                   name: child.val().name,
                   remaining_funds: child.val().remaining_funds,  
@@ -172,7 +134,9 @@ export default class App extends React.Component {
 
         });
       }
-    });
+    }, error => {
+      this.setState({isLoading: false});
+    }).bind(this);
   }
 
   listenForProjects(projectsRef) {
@@ -204,14 +168,15 @@ export default class App extends React.Component {
 
   showOrHideProjectInfo(project) {
     if(!this.state.projectInfoVisible) {
-      this.setState({projectInfoVisible: !this.state.projectInfoVisible,
-                      project: {
-                        name: project.name,
-                        author: project.author,
-                        description: project.description,
-                        total_investment: project.total_investment,
-                        id: project.id,
-                      }
+      this.setState({
+        projectInfoVisible: !this.state.projectInfoVisible,
+        project: {
+          name: project.name,
+          author: project.author,
+          description: project.description,
+          total_investment: project.total_investment,
+          id: project.id,
+        }
       });
     }
     else {
@@ -259,30 +224,9 @@ export default class App extends React.Component {
           partial_investment: 0,
           last_timestamp: '',
         },
-        proj07: {
-          partial_investment: 0,
-          last_timestamp: '',
-        },
-        proj08: {
-          partial_investment: 0,
-          last_timestamp: '',
-        },
-        proj09: {
-          partial_investment: 0,
-          last_timestamp: '',
-        },
-        proj10: {
-          partial_investment: 0,
-          last_timestamp: '',
-        },
-        proj11: {
-          partial_investment: 0,
-          last_timestamp: '',
-        },
       },
       name: investor.displayName,
       remaining_funds: 300000,
-      
     }).key;
   }
   
@@ -298,7 +242,9 @@ export default class App extends React.Component {
     return (
       <View style={styles.loginContainer}>
         <TouchableOpacity primary transparent block onPress={ () => this.loginWithFacebook() }>
-          <Text style={styles.loginButton}> Ingresá con Facebook </Text>
+          {
+            !this.state.isLoading && <Text style={styles.loginButton}> Ingresá con Facebook </Text>
+          }
         </TouchableOpacity>
       </View>
     );

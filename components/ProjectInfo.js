@@ -419,8 +419,10 @@ const styles = StyleSheet.create({
   },
   ProjectAuthor: {
     fontSize: 17,
-    color: '#FFFFFF',
+    color: '#c6c6c6',
     textAlign: 'center',
+    marginRight: 15,
+    marginLeft: 15,
   },
   projectBodyContainer: {
     marginRight: 15,
